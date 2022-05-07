@@ -14,7 +14,7 @@ ${WEBSITE}              https://www.traveloka.com/en-id/
 ${EMAIL}                tview3008@gmail.com
 ${NUMBER}               082184940908
 ${BROWSER}              gc 
-${Destinasi}            Semarang
+${Destinasi}            Palembang
 
 
 *** Test Cases ***
@@ -27,7 +27,7 @@ User can access mitrans
     Click Element                       //mark[.="${Destinasi}"]
     wait until element is visible       //div[@data-testid="search-submit-button"]
     Click Element                       //div[@data-testid="search-submit-button"]  
-
+    
 
 # User should be able to direct to resgister when login with invalid email
 #     [Documentation]                     User should be able to direct to resgister when login with invalid email
