@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20211205 21:26:23.615" rpa="false" schemaversion="2">
+<suite id="s1" name="Amazon" source="/Users/ruangguru/Desktop/Work/Automation FIle/Learn Robot Framework/UI/FirstScript/Tests/Amazon.robot">
+<test id="s1-t1" name="User must sign in to check out">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${WEBSITE}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211205 21:26:23.689" level="INFO">Opening browser 'gc' to base url 'HIDDEN'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20211205 21:26:30.751" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20211205 21:26:30.748" endtime="20211205 21:26:30.751"/>
+</kw>
+<msg timestamp="20211205 21:26:30.757" level="FAIL">WebDriverException: Message: Service chromedriver unexpectedly exited. Status code was: -9
+</msg>
+<status status="FAIL" starttime="20211205 21:26:23.688" endtime="20211205 21:26:30.757"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id=twotabsearchtextbox</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.758" endtime="20211205 21:26:30.758"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//*[@id="root"]/div/form/div/div[1]/div/input</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.758" endtime="20211205 21:26:30.758"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=/html/body/div[1]/div/form/div/div[2]/div[1]/div/input</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.758" endtime="20211205 21:26:30.759"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//*[@id="root"]/div/form/div/div[4]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.759" endtime="20211205 21:26:30.759"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Event(s)</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.759" endtime="20211205 21:26:30.759"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.759" endtime="20211205 21:26:30.759"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=twotabsearchtextbox</arg>
+<arg>ferrari 458</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.759" endtime="20211205 21:26:30.759"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=nav-search-submit-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.760" endtime="20211205 21:26:30.760"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.760" endtime="20211205 21:26:30.760"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>css=#search &gt; div.s-desktop-width-max.s-opposite-dir &gt; div &gt; div.s-matching-dir.sg-col-16-of-20.sg-col.s-results-column.sg-col-8-of-12.sg-col-12-of-16 &gt; div.sg-col-inner &gt; span.rush-component.s-latency-cf-section &gt; div.s-main-slot.s-result-list.s-search-results.sg-row &gt; div:nth-child(2) &gt; div &gt; span &gt; div &gt; div &gt; div &gt; div &gt; div &gt; div:nth-child(1) &gt; h2 &gt; a</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.761" endtime="20211205 21:26:30.761"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.761" endtime="20211205 21:26:30.761"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=nav-logo-sprites</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.761" endtime="20211205 21:26:30.761"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.761" endtime="20211205 21:26:30.761"/>
+</kw>
+<kw name="Click Image" library="SeleniumLibrary">
+<arg>"Alexa, play music."</arg>
+<doc>Clicks an image identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.762" endtime="20211205 21:26:30.762"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20211205 21:26:30.762" endtime="20211205 21:26:30.762"/>
+</kw>
+<doc>This is some basic info about the test</doc>
+<tag>Smoke</tag>
+<status status="FAIL" starttime="20211205 21:26:23.688" endtime="20211205 21:26:30.762">WebDriverException: Message: Service chromedriver unexpectedly exited. Status code was: -9
+</status>
+</test>
+<doc>This is some basic info about the whole suit</doc>
+<status status="FAIL" starttime="20211205 21:26:23.616" endtime="20211205 21:26:30.764"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Amazon">Amazon</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

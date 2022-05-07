@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20220507 15:28:25.705" rpa="false" schemaversion="2">
+<suite id="s1" name="TestUI" source="/Users/ruangguru/Desktop/Work/Automation FIle/Learn Robot Framework/UI/Webtest/Tests/TestUI.robot">
+<test id="s1-t1" name="User can access mitrans">
+<kw name="Open the browser" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220507 15:28:25.920" level="INFO">Opening browser 'gc' to base url 'about:blank'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220507 15:28:32.768" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20220507 15:28:32.767" endtime="20220507 15:28:32.768"/>
+</kw>
+<msg timestamp="20220507 15:28:32.772" level="FAIL">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 99
+Current browser version is 101.0.4951.54 with binary path /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+</msg>
+<status status="FAIL" starttime="20220507 15:28:25.920" endtime="20220507 15:28:32.772"/>
+</kw>
+<status status="FAIL" starttime="20220507 15:28:25.920" endtime="20220507 15:28:32.772"/>
+</kw>
+<doc>User should be able to direct to resgister when login with invalid email</doc>
+<tag>Reggression</tag>
+<status status="FAIL" starttime="20220507 15:28:25.920" endtime="20220507 15:28:32.773">Setup failed:
+SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 99
+Current browser version is 101.0.4951.54 with binary path /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+</status>
+</test>
+<doc>This is some basic info about the whole suit</doc>
+<status status="FAIL" starttime="20220507 15:28:25.706" endtime="20220507 15:28:32.773"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Reggression</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TestUI">TestUI</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

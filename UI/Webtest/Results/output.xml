@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20220406 22:33:48.336" rpa="false" schemaversion="2">
+<suite id="s1" name="TestUI" source="/Users/ruangguru/Desktop/Work/Automation FIle/Learn Robot Framework/UI/Webtest/Tests/TestUI.robot">
+<test id="s1-t1" name="User should be able to direct to resgister when login with invalid email">
+<kw name="Open the browser" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220406 22:33:48.419" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<msg timestamp="20220406 22:33:48.419" level="INFO">Firefox driver log is always forced to to: /Users/ruangguru/Desktop/Work/Automation FIle/Learn Robot Framework/UI/Webtest/results/geckodriver-7.log</msg>
+<status status="PASS" starttime="20220406 22:33:48.418" endtime="20220406 22:33:53.153"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:48.418" endtime="20220406 22:33:53.153"/>
+</kw>
+<kw name="Given go to Apps" library="TestWebGUI">
+<kw name="LoadPage" library="LandingPage">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${WEBSITE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220406 22:33:53.154" level="INFO">Opening url 'https://www.tokopedia.com'</msg>
+<status status="PASS" starttime="20220406 22:33:53.154" endtime="20220406 22:33:54.026"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:53.154" endtime="20220406 22:33:54.027"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:53.154" endtime="20220406 22:33:54.027"/>
+</kw>
+<kw name="And Klik login" library="TestWebGUI">
+<kw name="Clik login" library="TopHeader">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//button[@data-testid="btnHeaderLogin"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220406 22:33:54.027" endtime="20220406 22:33:54.111"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//button[@data-testid="btnHeaderLogin"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 22:33:54.111" level="INFO">Clicking element '//button[@data-testid="btnHeaderLogin"]'.</msg>
+<status status="PASS" starttime="20220406 22:33:54.111" endtime="20220406 22:33:54.347"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:54.027" endtime="20220406 22:33:54.347"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:54.027" endtime="20220406 22:33:54.347"/>
+</kw>
+<kw name="And Input Email" library="TestWebGUI">
+<kw name="Regist with email" library="Register">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//button[@data-testid="modal-close"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220406 22:33:54.348" endtime="20220406 22:33:54.568"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:email-phone</arg>
+<arg>${EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 22:33:54.569" level="INFO">Typing text 'tview3008@gmail.com' into text field 'id:email-phone'.</msg>
+<status status="PASS" starttime="20220406 22:33:54.569" endtime="20220406 22:33:54.624"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:54.348" endtime="20220406 22:33:54.624"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:54.347" endtime="20220406 22:33:54.624"/>
+</kw>
+<kw name="And Submit" library="TestWebGUI">
+<kw name="SubmitRegis" library="ClickElement">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id:email-phone-submit</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 22:33:54.625" level="INFO">Clicking element 'id:email-phone-submit'.</msg>
+<status status="PASS" starttime="20220406 22:33:54.625" endtime="20220406 22:33:54.844"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:54.625" endtime="20220406 22:33:54.844"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:54.624" endtime="20220406 22:33:54.844"/>
+</kw>
+<kw name="And VerifySubmit" library="TestWebGUI">
+<kw name="VerifyRegist" library="ClickElement">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@data-unify="Dialog"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220406 22:33:54.845" endtime="20220406 22:33:55.291"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//button[@class="css-evb2vf-unf-btn eg8apji0"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 22:33:55.291" level="INFO">Clicking element '//button[@class="css-evb2vf-unf-btn eg8apji0"]'.</msg>
+<status status="PASS" starttime="20220406 22:33:55.291" endtime="20220406 22:33:55.520"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:54.844" endtime="20220406 22:33:55.521"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:54.844" endtime="20220406 22:33:55.521"/>
+</kw>
+<kw name="When ButtonBack" library="TestWebGUI">
+<kw name="Back" library="ClickElement">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//button[@data-testid="modal-close"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220406 22:33:55.521" endtime="20220406 22:33:55.535"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//button[@data-testid="modal-close"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 22:33:55.535" level="INFO">Clicking element '//button[@data-testid="modal-close"]'.</msg>
+<status status="PASS" starttime="20220406 22:33:55.535" endtime="20220406 22:33:55.753"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:55.521" endtime="20220406 22:33:55.754"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:55.521" endtime="20220406 22:33:55.754"/>
+</kw>
+<kw name="Then VerifyHomePage" library="TestWebGUI">
+<kw name="TopHeaderVerify" library="TopHeader">
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220406 22:33:58.757" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220406 22:33:55.755" endtime="20220406 22:33:58.757"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>id:header-main-wrapper</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20220406 22:33:58.772" level="INFO">Element 'id:header-main-wrapper' is displayed.</msg>
+<status status="PASS" starttime="20220406 22:33:58.757" endtime="20220406 22:33:58.772"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:55.754" endtime="20220406 22:33:58.773"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:55.754" endtime="20220406 22:33:58.773"/>
+</kw>
+<kw name="Close the browser" library="Common" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220406 22:33:58.773" endtime="20220406 22:33:59.151"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:58.773" endtime="20220406 22:33:59.151"/>
+</kw>
+<doc>User should be able to direct to resgister when login with invalid email</doc>
+<tag>Reggression</tag>
+<status status="PASS" starttime="20220406 22:33:48.418" endtime="20220406 22:33:59.151"/>
+</test>
+<test id="s1-t2" name="User must sign in to check out">
+<kw name="Open the browser" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220406 22:33:59.153" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<msg timestamp="20220406 22:33:59.153" level="INFO">Firefox driver log is always forced to to: /Users/ruangguru/Desktop/Work/Automation FIle/Learn Robot Framework/UI/Webtest/results/geckodriver-8.log</msg>
+<status status="PASS" starttime="20220406 22:33:59.153" endtime="20220406 22:34:00.023"/>
+</kw>
+<status status="PASS" starttime="20220406 22:33:59.152" endtime="20220406 22:34:00.023"/>
+</kw>
+<kw name="Given Go to Apps" library="TestWebGUI">
+<kw name="LoadPage" library="LandingPage">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${WEBSITE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220406 22:34:00.023" level="INFO">Opening url 'https://www.tokopedia.com'</msg>
+<status status="PASS" starttime="20220406 22:34:00.023" endtime="20220406 22:34:01.181"/>
+</kw>
+<status status="PASS" starttime="20220406 22:34:00.023" endtime="20220406 22:34:01.181"/>
+</kw>
+<status status="PASS" starttime="20220406 22:34:00.023" endtime="20220406 22:34:01.181"/>
+</kw>
+<kw name="And Klik login" library="TestWebGUI">
+<kw name="Clik login" library="TopHeader">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//button[@data-testid="btnHeaderLogin"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220406 22:34:01.181" endtime="20220406 22:34:01.205"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//button[@data-testid="btnHeaderLogin"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 22:34:01.205" level="INFO">Clicking element '//button[@data-testid="btnHeaderLogin"]'.</msg>
+<status status="PASS" starttime="20220406 22:34:01.205" endtime="20220406 22:34:01.428"/>
+</kw>
+<status status="PASS" starttime="20220406 22:34:01.181" endtime="20220406 22:34:01.428"/>
+</kw>
+<status status="PASS" starttime="20220406 22:34:01.181" endtime="20220406 22:34:01.428"/>
+</kw>
+<kw name="And Input Email" library="TestWebGUI">
+<kw name="Regist with email" library="Register">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//button[@data-testid="modal-close"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220406 22:34:01.428" endtime="20220406 22:34:01.437"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:email-phone</arg>
+<arg>${EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 22:34:01.438" level="INFO">Typing text 'tview3008@gmail.com' into text field 'id:email-phone'.</msg>
+<status status="PASS" starttime="20220406 22:34:01.438" endtime="20220406 22:34:01.489"/>
+</kw>
+<status status="PASS" starttime="20220406 22:34:01.428" endtime="20220406 22:34:01.489"/>
+</kw>
+<status status="PASS" starttime="20220406 22:34:01.428" endtime="20220406 22:34:01.489"/>
+</kw>
+<kw name="When Submit" library="TestWebGUI">
+<kw name="SubmitRegis" library="ClickElement">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id:email-phone-submit</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 22:34:01.490" level="INFO">Clicking element 'id:email-phone-submit'.</msg>
+<status status="PASS" starttime="20220406 22:34:01.490" endtime="20220406 22:34:01.710"/>
+</kw>
+<status status="PASS" starttime="20220406 22:34:01.490" endtime="20220406 22:34:01.710"/>
+</kw>
+<status status="PASS" starttime="20220406 22:34:01.490" endtime="20220406 22:34:01.710"/>
+</kw>
+<kw name="Then VerifyText" library="TestWebGUI">
+<kw name="TextVerify" library="ClickElement">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//h2[text()="Email belum terdaftar"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220406 22:34:01.711" endtime="20220406 22:34:02.182"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>//h2[@data-unify="Typography"]</arg>
+<arg>Email belum terdaftar</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220406 22:34:02.183" level="INFO">Verifying element '//h2[@data-unify="Typography"]' contains exact text 'Email belum terdaftar'.</msg>
+<status status="PASS" starttime="20220406 22:34:02.182" endtime="20220406 22:34:02.191"/>
+</kw>
+<status status="PASS" starttime="20220406 22:34:01.710" endtime="20220406 22:34:02.191"/>
+</kw>
+<status status="PASS" starttime="20220406 22:34:01.710" endtime="20220406 22:34:02.191"/>
+</kw>
+<kw name="Close the browser" library="Common" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220406 22:34:02.191" endtime="20220406 22:34:02.558"/>
+</kw>
+<status status="PASS" starttime="20220406 22:34:02.191" endtime="20220406 22:34:02.558"/>
+</kw>
+<doc>User should be able to direct to frontpage when user tap deeplink</doc>
+<tag>Reggression2</tag>
+<status status="PASS" starttime="20220406 22:33:59.152" endtime="20220406 22:34:02.558"/>
+</test>
+<doc>This is some basic info about the whole suit</doc>
+<status status="PASS" starttime="20220406 22:33:48.336" endtime="20220406 22:34:02.559"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Reggression</stat>
+<stat pass="1" fail="0" skip="0">Reggression2</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="TestUI">TestUI</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
