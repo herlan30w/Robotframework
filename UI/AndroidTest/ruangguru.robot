@@ -8,7 +8,6 @@ ${PASS}
 ${REMOTE_URL}  http://localhost:4723/wd/hub
 ${PLATFORM_NAME_ANDROID}  Android
 ${DEVICE_NAME_ANDROID}  emulator-5554
-#${APP_ANDROID} ../Traveloka_Test/FileApk/Traveloka Lifestyle Superapp_3.51.2.apk
 ${APP_PACKAGE}  com.ruangguru.livestudents
 ${AUTOMATION_NAME}  Uiautomator2
 ${RESET_OFF}  true

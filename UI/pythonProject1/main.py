@@ -39,7 +39,7 @@ data = [1,4,8,2,5,0]
 
 array_temp = []
 for i in data:
-    if i == 2:
+    if i % 2==0:
         array_temp.append(i)
     else:
         continue
@@ -63,9 +63,11 @@ for i in range(len(data)-1):
     data[i],data[min] = data[min],data[i]
 print(data)
 
+array_kali2 = []
 for i in data:
     i = i**2
-    print(i)
+    array_kali2.append(i)
+print(array_kali2)
 
 num = 5
 for i in range(0,num):
@@ -93,8 +95,8 @@ for i in range(sisi):
     else:
         count += 1
         continue
-    if count > sisi:
-        break
+    # if count > sisi:
+    #     break
 print("=============")
 a = 4
 b = 1
