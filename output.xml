@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20220728 13:23:08.371" rpa="false" schemaversion="2">
+<suite id="s1" name="APITest" source="/Users/ruangguru/Desktop/Work/Automation FIle/Learn Robot Framework/UI/API/APITest.robot">
+<test id="s1-t1" name="TS_1">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>API_Testing</arg>
+<arg>${API_BASE}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220728 13:23:08.539" level="INFO">Creating Session using : alias=API_Testing, url=https://qa-interview.srcli.xyz, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220728 13:23:08.539" endtime="20220728 13:23:08.539"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>username=root</arg>
+<arg>password=root123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220728 13:23:08.539" level="INFO">${body} = {'username': 'root', 'password': 'root123'}</msg>
+<status status="PASS" starttime="20220728 13:23:08.539" endtime="20220728 13:23:08.539"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${Post_Response}</var>
+<arg>API_Testing</arg>
+<arg>/login</arg>
+<arg>data=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220728 13:23:25.597" level="INFO">POST Request : url=https://qa-interview.srcli.xyz/login (redirected) 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '30', 'Content-Type': 'application/x-www-form-urlencoded'} 
+ body=username=root&amp;password=root123 
+ </msg>
+<msg timestamp="20220728 13:23:25.597" level="INFO">GET Response : url=https://qa-interview.srcli.xyz/ 
+ status=200, reason=OK 
+ headers={'Content-Length': '18', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Thu, 28 Jul 2022 06:23:25 GMT'} 
+ body=&lt;h1&gt;Welcome!
+&lt;/h1&gt; 
+ </msg>
+<msg timestamp="20220728 13:23:25.597" level="INFO">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa-interview.srcli.xyz'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa-interview.srcli.xyz'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220728 13:23:25.598" level="INFO">${Post_Response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220728 13:23:08.539" endtime="20220728 13:23:25.598"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Post_Response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220728 13:23:25.598" endtime="20220728 13:23:25.600"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status}</var>
+<arg>${Post_Response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220728 13:23:25.601" level="INFO">${status} = 200</msg>
+<status status="PASS" starttime="20220728 13:23:25.600" endtime="20220728 13:23:25.601"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220728 13:23:25.602" endtime="20220728 13:23:25.602"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${Get_Response}</var>
+<arg>API_Testing</arg>
+<arg>/data</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220728 13:23:25.823" level="INFO">GET Request : url=https://qa-interview.srcli.xyz/data 
+ path_url=/data 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'username=root'} 
+ body=None 
+ </msg>
+<msg timestamp="20220728 13:23:25.823" level="INFO">GET Response : url=https://qa-interview.srcli.xyz/data 
+ status=200, reason=OK 
+ headers={'Content-Type': 'text/html; charset=utf-8', 'Date': 'Thu, 28 Jul 2022 06:23:25 GMT', 'Set-Cookie': 'filter=no', 'Transfer-Encoding': 'chunked'} 
+ body=&lt;h1&gt;Pemasukan&lt;/h1&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;TimeStamp&lt;/th&gt;&lt;th&gt;Deskripsi&lt;/th&gt;&lt;th&gt;Jumlah&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;testingA&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;testingA&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h1&gt;Pengeluaran&lt;/h1&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;TimeStamp&lt;/th&gt;&lt;th&gt;Deskripsi&lt;/th&gt;&lt;th&gt;Jumlah&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;testing&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;testingA&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;testing&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;testingA&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;form action="/filter" method="post"&gt;
+            Start:&lt;input type="text" name="start"&gt;
+            End:&lt;input type="text" name="end"&gt;
+            &lt;input type="submit" value="Filter"&gt;
+        &lt;/form&gt;
+        Date Format: yyyy-mm-dd
+    &lt;/body&gt;
+&lt;/html&gt; 
+ </msg>
+<msg timestamp="20220728 13:23:25.824" level="INFO">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa-interview.srcli.xyz'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220728 13:23:25.824" level="INFO">${Get_Response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220728 13:23:25.602" endtime="20220728 13:23:25.824"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Get_Response}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220728 13:23:25.825" endtime="20220728 13:23:25.825"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_data}</var>
+<arg>${Get_Response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220728 13:23:25.829" level="INFO">${status_data} = 200</msg>
+<status status="PASS" starttime="20220728 13:23:25.826" endtime="20220728 13:23:25.829"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_data}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220728 13:23:25.829" endtime="20220728 13:23:25.829"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${Get_Response}</var>
+<arg>API_Testing</arg>
+<arg>/logout</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220728 13:23:26.037" level="INFO">GET Request : url=https://qa-interview.srcli.xyz/logout 
+ path_url=/logout 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'filter=no; username=root'} 
+ body=None 
+ </msg>
+<msg timestamp="20220728 13:23:26.038" level="INFO">GET Response : url=https://qa-interview.srcli.xyz/logout 
+ status=200, reason=OK 
+ headers={'Content-Length': '0', 'Date': 'Thu, 28 Jul 2022 06:23:25 GMT'} 
+ body=None 
+ </msg>
+<msg timestamp="20220728 13:23:26.038" level="INFO">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa-interview.srcli.xyz'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220728 13:23:26.038" level="INFO">${Get_Response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220728 13:23:25.829" endtime="20220728 13:23:26.038"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Get_Response}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220728 13:23:26.039" endtime="20220728 13:23:26.039"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_logout}</var>
+<arg>${Get_Response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220728 13:23:26.041" level="INFO">${status_logout} = 200</msg>
+<status status="PASS" starttime="20220728 13:23:26.040" endtime="20220728 13:23:26.041"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_data}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220728 13:23:26.041" endtime="20220728 13:23:26.041"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${Get_Response}</var>
+<arg>API_Testing</arg>
+<arg>/data</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220728 13:23:27.136" level="INFO">GET Request : url=https://qa-interview.srcli.xyz/data 
+ path_url=/data 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'filter=no; username=root'} 
+ body=None 
+ </msg>
+<msg timestamp="20220728 13:23:27.136" level="INFO">GET Response : url=https://qa-interview.srcli.xyz/data 
+ status=200, reason=OK 
+ headers={'Content-Type': 'text/html; charset=utf-8', 'Date': 'Thu, 28 Jul 2022 06:23:26 GMT', 'Set-Cookie': 'filter=no', 'Transfer-Encoding': 'chunked'} 
+ body=&lt;h1&gt;Pemasukan&lt;/h1&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;TimeStamp&lt;/th&gt;&lt;th&gt;Deskripsi&lt;/th&gt;&lt;th&gt;Jumlah&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;testingA&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;testingA&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pemasukan11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h1&gt;Pengeluaran&lt;/h1&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;TimeStamp&lt;/th&gt;&lt;th&gt;Deskripsi&lt;/th&gt;&lt;th&gt;Jumlah&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;testing&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;testingA&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;testing&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;testingA&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2018-07-11&lt;/td&gt;&lt;td&gt;pengeluaran11&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;form action="/filter" method="post"&gt;
+            Start:&lt;input type="text" name="start"&gt;
+            End:&lt;input type="text" name="end"&gt;
+            &lt;input type="submit" value="Filter"&gt;
+        &lt;/form&gt;
+        Date Format: yyyy-mm-dd
+    &lt;/body&gt;
+&lt;/html&gt; 
+ </msg>
+<msg timestamp="20220728 13:23:27.137" level="INFO">/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa-interview.srcli.xyz'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220728 13:23:27.137" level="INFO">${Get_Response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220728 13:23:26.042" endtime="20220728 13:23:27.137"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Get_Response}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220728 13:23:27.137" endtime="20220728 13:23:27.138"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_data}</var>
+<arg>${Get_Response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220728 13:23:27.139" level="INFO">${status_data} = 200</msg>
+<status status="PASS" starttime="20220728 13:23:27.138" endtime="20220728 13:23:27.140"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_data}</arg>
+<arg>302</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20220728 13:23:27.142" level="FAIL">200 != 302</msg>
+<status status="FAIL" starttime="20220728 13:23:27.140" endtime="20220728 13:23:27.142"/>
+</kw>
+<status status="FAIL" starttime="20220728 13:23:08.539" endtime="20220728 13:23:27.143">200 != 302</status>
+</test>
+<status status="FAIL" starttime="20220728 13:23:08.372" endtime="20220728 13:23:27.144"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="APITest">APITest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
